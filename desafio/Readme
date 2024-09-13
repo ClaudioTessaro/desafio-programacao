@@ -1,0 +1,39 @@
+```markdown
+# MagaLu Desafio
+
+## Descrição
+Este projeto é uma aplicação Spring Boot que permite o upload de arquivos e o processamento de dados de compras. A aplicação lê arquivos de texto, processa os dados e os armazena em um banco de dados.
+
+## Tecnologias Utilizadas
+- Java
+- Spring Boot
+- Maven
+- SQL
+
+## Requisitos
+- JDK 17
+- Maven 3.6.0 ou superior
+- Banco de dados PostgreSQL
+
+### Compilando e Executando a Aplicação
+##Passos para Executar
+
+#Crie o arquivo JAR da aplicação:
+    mvn clean install
+#Construa e inicie os contêineres:
+    docker-compose up --build
+##Acesse a aplicação via browser:
+    http://localhost:8080/upload
+
+Com esses arquivos e passos, você poderá executar a aplicação Spring Boot e o banco de dados PostgreSQL usando Docker Compose.
+```
+
+## Acessando a Aplicação via Browser
+Após iniciar a aplicação, você pode acessá-la via browser utilizando a seguinte URL:
+```
+http://localhost:8080/upload
+```
+Nesta página, você poderá fazer o upload dos arquivos de texto para processamento.
+
+## Acessando o Banco de Dados
+Para acessar o banco de dados, você pode utilizar qualquer cliente SQL de sua preferência, como MySQL Workbench, pgAdmin, DBeaver, etc. Utilize as credenciais configuradas no arquivo `application.properties`.

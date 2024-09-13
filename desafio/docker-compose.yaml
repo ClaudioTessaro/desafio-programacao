@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  app:
+    image: openjdk:17-jdk-slim
+    container_name: spring_app
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/magalu
+      SPRING_DATASOURCE_USERNAME: magaluuser
+      SPRING_DATASOURCE_PASSWORD: magalupassword
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: ["./mvnw", "spring-boot:run"]
+    depends_on:
+      - db
+
+  db:
+    image: postgres:14
+    container_name: postgres_db
+    environment:
+      POSTGRES_DB: magalu
+      POSTGRES_USER: magaluuser
+      POSTGRES_PASSWORD: magalupassword
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
